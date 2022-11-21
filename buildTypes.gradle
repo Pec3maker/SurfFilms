@@ -1,0 +1,22 @@
+//Данный файл описывает типы сборок
+
+apply from: '../config.gradle'
+
+android {
+
+    buildTypes {
+        //todo настроить типы сборки
+        debug {
+            minifyEnabled false
+            debuggable = true
+            applicationIdSuffix meta.debugVersionNameSuffix
+            resValue "string", "app_name", "Template Debug" //todo fix debug app name
+        }
+        release {
+            multiDexEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../proguard-rules.pro'
+            matchingFallbacks = ['release', 'qa']
+        }
+    }
+}

@@ -1,0 +1,105 @@
+ext {
+    applicationName = "filmsurf"
+
+    app = [
+            applicationId: "ru.surfstudio.android.filmssurf",
+            versionName  : "0.0.1",
+            versionCode  : 1
+    ]
+
+    meta = [
+            minSdkVersion         : 21,
+            targetSdkVersion      : 31,
+            compileSdkVersion     : 31,
+            debugVersionNameSuffix: ".debug",
+            qaVersionNameSuffix   : ".qa"
+    ]
+
+    versions = [
+            gradlePluginVersion        : '7.0.3',              //https://bit.ly/3lvwLGQ
+            buildToolsVersion          : '30.0.2',             //https://bit.ly/2DNmq3Y
+            buildScanPluginVersion     : '2.4.2',              //https://goo.gl/coZHFo
+            kotlinVersion              : '1.5.31',             //https://bit.ly/2WDq5vS
+            jetbrainsAnnotationsVersion: '22.0.0',             //http://bit.ly/2NYf6Dt
+            constraintLayoutVersion    : '2.1.1',              //http://bit.ly/2S1WoNg
+            ktlintPluginVersion        : '3.4.5',              //https://bit.ly/2YLc3n8
+            daggerVersion              : '2.36',               //https://vk.cc/7UFvQo
+            javaInjectVersion          : '1',                  //https://goo.gl/cM9Kcd
+            androidXVersion            : '1.3.1',              //http://bit.ly/2zjueqh
+            androidxTestCoreVersion    : '1.3.0',              //http://bit.ly/2P1yKi1
+            androidxTestExtJunitVersion: '1.1.2',              //http://bit.ly/2zC6UV1
+            androidxAnnotationVersion  : '1.3.0',              //http://bit.ly/2P3QBVO
+            androidXTestRunnerVersion  : '1.4.0',              //http://bit.ly/2ztEfBo
+            junitVersion               : '4.13.2',             //https://goo.gl/hEcfw1
+            okHttpVersion              : '4.9.2',              //https://vk.cc/7UFwTd
+            retrofitVersion            : '2.9.0',              //https://vk.cc/7UFxk3
+            rxBinding2Version          : '2.2.0',              //https://goo.gl/KQ5Vga
+            rxJava2DebugVersion        : '1.4.0',              //https://bit.ly/322Qzo7
+            androidDebugToolsVersion   : '1.0',                //https://bit.ly/2QMKLfe
+            lifecycleVersion           : '2.2.0',              //https://bit.ly/36Z0Re9
+            gsonVersion                : '2.8.9',              //https://bit.ly/3sMIrVs
+            googleMaterialVersion      : "1.4.0",              // http://bit.ly/2KAAq1y
+    ]
+
+
+    lang = [
+            kotlinStdLib        : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlinVersion}",
+            jetbrainsAnnotations: "org.jetbrains:annotations:${versions.jetbrainsAnnotationsVersion}"
+    ]
+
+    di = [
+            dagger    : "com.google.dagger:dagger:${versions.daggerVersion}",
+            daggerKapt: "com.google.dagger:dagger-compiler:${versions.daggerVersion}",
+            javaInject: "javax.inject:javax.inject:${versions.javaInjectVersion}"
+    ]
+
+    androidX = [
+            splash          : "androidx.core:core-splashscreen:${versions.splashVersion}",
+            appcompat       : "androidx.appcompat:appcompat:${versions.androidXVersion}",
+            annotation      : "androidx.annotation:annotation:${versions.androidxAnnotationVersion}",
+            constraintLayout: "androidx.constraintlayout:constraintlayout:${versions.constraintLayoutVersion}"
+    ]
+
+    okHttp = [
+            loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${versions.okHttpVersion}"
+    ]
+
+    retrofit = [
+            core          : "com.squareup.retrofit2:retrofit:${versions.retrofitVersion}",
+            converterGson : "com.squareup.retrofit2:converter-gson:${versions.retrofitVersion}",
+            adapterRxJava2: "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofitVersion}"
+    ]
+
+    rxBinding2 = [
+            core  : "com.jakewharton.rxbinding2:rxbinding:${versions.rxBinding2Version}",
+            kotlin: "com.jakewharton.rxbinding2:rxbinding-kotlin:${versions.rxBinding2Version}",
+    ]
+
+    test = [
+            junit: "junit:junit:${versions.junitVersion}",
+    ]
+
+    androidTest = [
+            core      : "androidx.test:core:${versions.androidxTestCoreVersion}",
+            extJunit  : "androidx.test.ext:junit:${versions.androidxTestExtJunitVersion}",
+            testRunner: "androidx.test:runner:${versions.androidXTestRunnerVersion}",
+    ]
+
+    view = [
+            material: "com.google.android.material:material:${versions.googleMaterialVersion}"
+    ]
+
+    debug = [
+            rxJava2Debug     : "com.akaita.java:rxjava2-debug:${versions.rxJava2DebugVersion}",
+            androidDebugTools: "com.github.kk121:Android-Debug-Tools:${versions.androidDebugToolsVersion}",
+    ]
+
+    architectureComponents = [
+            lifecycle                   : "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycleVersion}",
+            lifecycleAnnotationProcessor: "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycleVersion}"
+    ]
+
+    serialization = [
+            gson: "com.google.code.gson:gson:${versions.gsonVersion}"
+    ]
+}
