@@ -3,7 +3,7 @@
 * Should be applied to every module with DI included.
 */
 apply plugin: 'kotlin-kapt'
-apply plugin: 'com.google.dagger.hilt.android'
+apply plugin: 'dagger.hilt.android.plugin'
 
 dependencies {
     implementation di.dagger

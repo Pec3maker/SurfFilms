@@ -9,13 +9,13 @@ android {
     buildTypes {
 
         debug {
-            buildConfigField "String", "BASE_URL", '""'
+            buildConfigField "String", "BASE_URL", '"https://developers.themoviedb.org/3"'
             multiDexEnabled true
             debuggable = true
         }
 
         release {
-            buildConfigField "String", "BASE_URL", '""'
+            buildConfigField "String", "BASE_URL", '"https://developers.themoviedb.org/3"'
             minifyEnabled true
         }
     }
