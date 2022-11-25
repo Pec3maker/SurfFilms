@@ -39,6 +39,7 @@ ext {
             lifecycleVersion           : '2.2.0',              //https://bit.ly/36Z0Re9
             gsonVersion                : '2.8.9',              //https://bit.ly/3sMIrVs
             googleMaterialVersion      : "1.4.0",              // http://bit.ly/2KAAq1y
+            easyAdapterVersion: "2.1.0",
     ]
 
 
@@ -97,6 +98,11 @@ ext {
     architectureComponents = [
             lifecycle                   : "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycleVersion}",
             lifecycleAnnotationProcessor: "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycleVersion}"
+    ]
+
+    easyAdapter = [
+            core :"ru.surfstudio.android:easyadapter:${versions.easyAdapterVersion}",
+            pagination: "ru.surfstudio.android:easyadapter-pagination:${versions.easyAdapterVersion}"
     ]
 
     serialization = [

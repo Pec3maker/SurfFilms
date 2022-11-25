@@ -6,12 +6,4 @@ dependencies {
     api view.material
 
     implementation serialization.gson
-
-    gradle.ext.androidStandard.api(
-            this,
-            [
-                    "easyadapter",
-                    "easyadapter-pagination"
-            ]
-    )
 }

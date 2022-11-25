@@ -5,23 +5,3 @@ include ":app",
         ":base_feature",
         ":base_resources",
         ":domain"
-//        ":i-initialization",
-//        ":i-onboarding",
-//        ":i-network",
-//        ":i-session",
-//        ":i-token",
-//        ":i-auth",
-//        ":i-push-notification",
-//        ":f-onboarding",
-//        ":f-auth",
-//        ":f-main",
-//        ":f-debug",
-//        ":f-splash",
-//        ":f-debug-no-op",
-//        ':f-feed',
-//        ':f-search',
-//        ':f-profile',
-//        ":small-test-utils",
-//        ":v-message-controller-top"
-
-apply from: 'android-standard/androidStandardSettings.gradle'
