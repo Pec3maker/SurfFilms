@@ -8,4 +8,8 @@ dependencies {
     api coroutines.core
     api serialization.gson
     api retrofit.gsonConverter
+    kapt room.core
+    api room.core
+    api room.coroutines
+    api room.paging
 }
