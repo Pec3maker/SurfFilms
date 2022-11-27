@@ -13,9 +13,6 @@ buildscript {
         classpath "com.android.tools.build:gradle:${versions.gradlePluginVersion}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlinVersion}"
         classpath "com.gradle:build-scan-plugin:${versions.buildScanPluginVersion}"
-        if (!gradle.ext.androidStandard.debugEnabled) {
-            classpath "ru.surfstudio.android:version-plugin:${androidStandardVersion}"
-        }
     }
 }
 
@@ -31,7 +28,3 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-apply from: "scripts/dependenciesModules.gradle"
-apply from: "scripts/ktFormatter.gradle"
-apply from: "androidStandardPlugin.gradle"
