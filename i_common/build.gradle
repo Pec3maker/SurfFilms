@@ -1,0 +1,11 @@
+apply from: '../commonInteractorModule.gradle'
+apply from: '../daggerKaptModule.gradle'
+
+dependencies {
+
+    api retrofit.core
+    api okHttp.loggingInterceptor
+    api coroutines.core
+    api serialization.gson
+    api retrofit.gsonConverter
+}

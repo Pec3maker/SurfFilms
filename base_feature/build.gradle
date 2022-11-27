@@ -1,13 +1,5 @@
 apply from: '../commonModule.gradle'
-apply from: '../daggerKaptModule.gradle'
 
 dependencies {
     api project(":base")
-//    api project(":base_resources")
-
-    api retrofit.core
-    api okHttp.loggingInterceptor
-    api coroutines.core
-    api serialization.gson
-    api serialization.gsonConverter
 }

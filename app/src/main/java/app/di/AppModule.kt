@@ -1,4 +1,4 @@
-package ru.surfstudio.filmssurf.application.app.di
+package app.di
 
 import dagger.Module
 import dagger.hilt.InstallIn

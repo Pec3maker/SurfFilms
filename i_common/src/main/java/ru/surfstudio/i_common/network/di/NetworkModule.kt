@@ -1,4 +1,4 @@
-package ru.surfstudio.filmssurf.application.network.di
+package ru.surfstudio.i_common.network.di
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -9,12 +9,26 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.surfstudio.filmssurf.application.network.urls.ServerUrls
+import ru.surfstudio.android.filmssurf.i_common.BuildConfig
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
+
+private const val NETWORK_TIMEOUT = 30L //sec
 
 @Module
 @InstallIn(SingletonComponent::class)
-class NetworkModule {
+object NetworkModule {
+
+    @Provides
+    @Singleton
+    internal fun provideOkHttpClient(
+    ): OkHttpClient {
+        return OkHttpClient.Builder().apply {
+            connectTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
+            readTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
+            writeTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
+        }.build()
+    }
 
     @Provides
     @Singleton
@@ -24,7 +38,7 @@ class NetworkModule {
     ): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl(ServerUrls.BASE_API_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }

@@ -67,6 +67,7 @@ ext {
 
     retrofit = [
             core: "com.squareup.retrofit2:retrofit:${versions.retrofitVersion}",
+            gsonConverter: "com.squareup.retrofit2:converter-gson:${versions.gsonVersion}"
     ]
 
     coroutines = [
@@ -110,7 +111,6 @@ ext {
     ]
 
     serialization = [
-            gson         : "com.google.code.gson:gson:${versions.gsonVersion}",
-            gsonConverter: "com.squareup.retrofit2:converter-gson:${versions.gsonVersion}"
+            gson         : "com.google.code.gson:gson:${versions.gsonVersion}"
     ]
 }

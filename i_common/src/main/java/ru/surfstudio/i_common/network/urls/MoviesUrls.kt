@@ -1,4 +1,4 @@
-package ru.surfstudio.filmssurf.application.network.urls
+package ru.surfstudio.i_common.network.urls
 
 object Urls {
     const val MOVIES_PATH = "/discover/movie"

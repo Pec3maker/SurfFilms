@@ -25,3 +25,4 @@ include ":app",
 //        ":v-message-controller-top"
 
 apply from: 'android-standard/androidStandardSettings.gradle'
+include ':i_common'
