@@ -1,5 +1,9 @@
 apply from: '../commonModule.gradle'
 
+android {
+    namespace 'ru.surfstudio.android.filmssurf.base_feature'
+}
+
 dependencies {
     api project(":base")
 }
