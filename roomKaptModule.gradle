@@ -1,0 +1,12 @@
+/*
+* Dagger 2 & Room.
+* Should be applied to every module with Room included.
+*/
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation room.core
+    implementation room.coroutines
+    implementation room.paging
+    kapt room.kapt
+}
