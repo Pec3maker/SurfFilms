@@ -1,0 +1,29 @@
+buildscript {
+    apply from: 'config.gradle'
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url 'https://artifactory.surfstudio.ru/artifactory/libs-release-local' }
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:${versions.gradlePluginVersion}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlinVersion}"
+        classpath "com.gradle:build-scan-plugin:${versions.buildScanPluginVersion}"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://artifactory.surfstudio.ru/artifactory/libs-release-local" }
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

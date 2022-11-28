@@ -1,0 +1,9 @@
+apply from: '../commonModule.gradle'
+
+dependencies {
+    api project(":domain")
+
+    api view.material
+
+    implementation serialization.gson
+}
