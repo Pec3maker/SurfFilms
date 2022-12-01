@@ -1,0 +1,14 @@
+apply from: '../commonInteractorModule.gradle'
+apply from: '../daggerKaptModule.gradle'
+
+android {
+    namespace 'ru.surfstudio.android.filmssurf.i_common'
+}
+
+dependencies {
+
+    api retrofit.core
+    api okHttp.loggingInterceptor
+    api serialization.gson
+    api retrofit.gsonConverter
+}

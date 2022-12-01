@@ -35,7 +35,7 @@ ext {
             retrofitVersion            : '2.9.0',              //https://vk.cc/7UFxk3
             androidDebugToolsVersion   : '1.0',                //https://bit.ly/2QMKLfe
             lifecycleVersion           : '2.2.0',              //https://bit.ly/36Z0Re9
-            gsonVersion                : '2.8.9',              //https://bit.ly/3sMIrVs
+            gsonVersion                : '2.8.0',              //https://bit.ly/3sMIrVs
             googleMaterialVersion      : "1.4.0",              // http://bit.ly/2KAAq1y
             easyAdapterVersion         : "2.1.0",
             roomVersion                : "2.4.3",
@@ -67,9 +67,8 @@ ext {
     ]
 
     retrofit = [
-            core          : "com.squareup.retrofit2:retrofit:${versions.retrofitVersion}",
-            converterGson : "com.squareup.retrofit2:converter-gson:${versions.retrofitVersion}",
-            adapterRxJava2: "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofitVersion}"
+            core         : "com.squareup.retrofit2:retrofit:${versions.retrofitVersion}",
+            gsonConverter: "com.squareup.retrofit2:converter-gson:${versions.gsonVersion}"
     ]
 
     coroutines = [
