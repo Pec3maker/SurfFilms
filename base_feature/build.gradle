@@ -1,5 +1,4 @@
 apply from: '../commonModule.gradle'
-apply from: '../daggerKaptModule.gradle'
 
 android {
     namespace 'ru.surfstudio.android.filmssurf.base_feature'
