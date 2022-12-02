@@ -11,6 +11,8 @@ apply from: '../daggerKaptModule.gradle'
 
 android {
 
+    namespace 'ru.surfstudio.android.filmssurf.app'
+
     defaultConfig {
         applicationId app.applicationId
 
