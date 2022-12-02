@@ -5,4 +5,5 @@ include ":app",
         ":base_feature",
         ":base_resources",
         ":domain",
-        ":i_common"
+        ":i_common",
+        ":f_films"

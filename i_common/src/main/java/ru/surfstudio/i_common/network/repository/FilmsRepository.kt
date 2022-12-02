@@ -14,7 +14,7 @@ import ru.surfstudio.i_common.network.room.FilmDao
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class FilmRepository @Inject constructor(
+class FilmsRepository @Inject constructor(
     private val api: FilmApi,
     private val filmDao: FilmDao
 ) {

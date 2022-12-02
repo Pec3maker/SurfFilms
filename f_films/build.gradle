@@ -1,0 +1,11 @@
+apply from: '../commonFeatureModule.gradle'
+apply from: '../daggerKaptModule.gradle'
+
+android {
+    namespace 'ru.surfstudio.android.filmssurf.f_films'
+}
+
+dependencies {
+    implementation project(":base_feature")
+    implementation project(":i_common")
+}

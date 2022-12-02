@@ -13,6 +13,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.surfstudio.android.filmssurf.i_common.BuildConfig
+import ru.surfstudio.i_common.network.retrofit.FilmApi
 import ru.surfstudio.i_common.network.room.FilmDatabase
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -54,6 +55,9 @@ object CommonModule {
         return GsonBuilder().create()
     }
 
+    @Provides
+    @Singleton
+    fun provideFilmApi(retrofit: Retrofit): FilmApi = retrofit.create(FilmApi::class.java)
 
     @Provides
     @Singleton
