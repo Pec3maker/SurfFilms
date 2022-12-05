@@ -9,12 +9,21 @@ interface FilmDao {
     @Query("SELECT * FROM FilmEntity")
     fun getFilms(): Flow<List<FilmEntity>>
 
-    @Query("SELECT * FROM FilmEntity WHERE id = :id")
-    suspend fun getFilmsById(id: Int): FilmEntity?
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertFilm(film: FilmEntity)
+    suspend fun insertFilms(films: List<FilmEntity>)
 
     @Delete
-    suspend fun deleteFilm(film: FilmEntity)
+    suspend fun deleteFilms(films: List<FilmEntity>)
+
+    @Query(
+        "SELECT * FROM FilmEntity " +
+                "JOIN FavoritesFilmsEntity ON FilmEntity.id = FavoritesFilmsEntity.film_id"
+    )
+    fun getFavouriteFilms(): Flow<List<FilmEntity>>
+
+    @Query("INSERT INTO FavoritesFilmsEntity (film_id) VALUES (:filmId)")
+    suspend fun addFavourite(filmId: Int)
+
+    @Query("DELETE FROM FavoritesFilmsEntity WHERE film_id = :filmId")
+    suspend fun deleteFavourite(filmId: Int)
 }
