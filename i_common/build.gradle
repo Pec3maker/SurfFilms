@@ -7,12 +7,12 @@ android {
 
 dependencies {
 
-    api retrofit.core
-    api okHttp.loggingInterceptor
-    api serialization.gson
-    api retrofit.gsonConverter
+    implementation retrofit.core
+    implementation okHttp.loggingInterceptor
+    implementation serialization.gson
+    implementation retrofit.gsonConverter
     kapt room.core
-    api room.core
-    api room.coroutines
-    api room.paging
+    implementation room.core
+    implementation room.coroutines
+    implementation room.paging
 }

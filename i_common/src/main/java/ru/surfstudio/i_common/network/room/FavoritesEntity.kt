@@ -14,6 +14,6 @@ import androidx.room.ForeignKey.CASCADE
     ]
 )
 data class FavoritesFilmsEntity(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @ColumnInfo(name = "id") @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "film_id") val filmId: Int
 )
