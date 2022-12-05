@@ -15,9 +15,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        supportFragmentManager.commit {
-            add<FilmsFragmentView>(R.id.main_fragment_container)
-            addToBackStack(null)
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit {
+                add<FilmsFragmentView>(R.id.main_fragment_container)
+                addToBackStack(null)
+            }
         }
     }
 }

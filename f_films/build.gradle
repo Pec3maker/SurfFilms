@@ -6,6 +6,5 @@ android {
 }
 
 dependencies {
-    implementation project(":base_feature")
     implementation project(":i_common")
 }
