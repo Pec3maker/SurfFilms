@@ -11,4 +11,8 @@ dependencies {
     api okHttp.loggingInterceptor
     api serialization.gson
     api retrofit.gsonConverter
+    kapt room.core
+    api room.core
+    api room.coroutines
+    api room.paging
 }
