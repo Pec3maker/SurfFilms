@@ -7,9 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import ru.surfstudio.android.filmssurf.f_films.databinding.FragmentFilmsBinding
 
 @AndroidEntryPoint
 class FilmsFragmentView : Fragment() {
+
+    private var _binding: FragmentFilmsBinding? = null
+    private val binding get() = _binding!!
 
     private val viewModel: FilmsViewModel by viewModels()
 
@@ -17,8 +21,9 @@ class FilmsFragmentView : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+    ): View {
+        _binding = FragmentFilmsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,6 +32,6 @@ class FilmsFragmentView : Fragment() {
     }
 
     private fun init() {
-        TODO("Not yet implemented")
+        //todo
     }
 }
