@@ -1,4 +1,4 @@
-package app
+package ru.surfstudio.filmssurf.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

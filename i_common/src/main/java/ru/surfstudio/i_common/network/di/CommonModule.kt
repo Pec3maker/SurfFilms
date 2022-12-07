@@ -13,6 +13,8 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.surfstudio.android.filmssurf.i_common.BuildConfig
+import ru.surfstudio.i_common.network.retrofit.FilmApi
+import ru.surfstudio.i_common.network.room.FilmDao
 import ru.surfstudio.i_common.network.room.FilmDatabase
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -54,15 +56,25 @@ object CommonModule {
         return GsonBuilder().create()
     }
 
+    @Provides
+    @Singleton
+    fun provideFilmApi(retrofit: Retrofit): FilmApi {
+        return retrofit.create(FilmApi::class.java)
+    }
 
     @Provides
     @Singleton
-    fun provideFilmDatabase(@ApplicationContext context: Context) =
-        Room.databaseBuilder(context, FilmDatabase::class.java, DATABASE_NAME)
+    fun provideFilmDatabase(@ApplicationContext context: Context): FilmDatabase {
+        return Room.databaseBuilder(context, FilmDatabase::class.java, DATABASE_NAME)
             .fallbackToDestructiveMigration()
             .build()
+    }
+
 
     @Provides
     @Singleton
-    fun provideFilmDao(db: FilmDatabase) = db.filmDao
+    fun provideFilmDao(db: FilmDatabase): FilmDao {
+        return db.filmDao
+    }
+
 }
