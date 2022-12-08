@@ -6,4 +6,5 @@ android {
 
 dependencies {
     api project(":base")
+    implementation project(":i_common")
 }

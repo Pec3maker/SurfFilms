@@ -4,10 +4,10 @@ apply plugin: 'kotlin-kapt'
 
 apply from: '../config.gradle'
 
+apply from: '../daggerKaptModule.gradle'
 apply from: '../setLabelToIcon.gradle'
 apply from: '../buildTypes.gradle'
 apply from: '../commonAndroidDefaultConfig.gradle'
-apply from: '../daggerKaptModule.gradle'
 
 android {
 
@@ -28,6 +28,8 @@ android {
 }
 
 dependencies {
+
+    implementation project(':f_films')
 
     implementation lang.kotlinStdLib
     implementation lang.jetbrainsAnnotations

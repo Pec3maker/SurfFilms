@@ -8,4 +8,7 @@ dependencies {
     }
 
     implementation project(":base_feature")
+    implementation architectureComponents.activity
+    implementation architectureComponents.fragment
+    implementation architectureComponents.viewmodel
 }
