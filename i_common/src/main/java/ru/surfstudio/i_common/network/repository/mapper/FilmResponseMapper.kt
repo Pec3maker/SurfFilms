@@ -1,5 +1,6 @@
 package ru.surfstudio.i_common.network.repository.mapper
 
+import ru.surfstudio.android.filmssurf.i_common.BuildConfig
 import ru.surfstudio.films_surf.base.mapper.ListMapperImpl
 import ru.surfstudio.films_surf.base.mapper.Mapper
 import ru.surfstudio.films_surf.domain.models.Film
@@ -11,7 +12,7 @@ internal object FilmResponseMapper : Mapper<FilmResponse, Film> {
         return Film(
             id = input.id,
             overview = input.overview,
-            posterPath = input.posterPath,
+            posterPath = BuildConfig.IMAGE_PATH + input.posterPath,
             releaseDate = input.releaseDate,
             title = input.title
         )

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="unknown_error_message">Неизвестная ошибка</string>
+    <string name="unknown_host_error_message">Проверьте подколючение к интернету</string>
+</resources>

@@ -7,4 +7,8 @@ android {
 dependencies {
     api project(":base")
     implementation project(":i_common")
+
+    api coil.core
+    api easyAdapter.core
+    api easyAdapter.pagination
 }

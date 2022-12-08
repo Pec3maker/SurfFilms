@@ -19,3 +19,18 @@ internal object FilmEntityToFilmMapper : Mapper<FilmEntity, Film> {
 }
 
 internal val filmEntityListMapper = ListMapperImpl(FilmEntityToFilmMapper)
+
+internal object FilmToFilmEntityMapper : Mapper<Film, FilmEntity> {
+
+    override fun map(input: Film): FilmEntity {
+        return FilmEntity(
+            id = input.id,
+            overview = input.overview,
+            posterPath = input.posterPath,
+            releaseDate = input.releaseDate,
+            title = input.title
+        )
+    }
+}
+
+internal val filmToFilmEntityListMapper = ListMapperImpl(FilmToFilmEntityMapper)

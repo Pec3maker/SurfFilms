@@ -44,6 +44,7 @@ ext {
             pagingVersion              : "3.1.1",
             fragmentVersion            : "1.5.4",
             activityVersion            : "1.5.1",
+            coilVersion                : "2.1.0"
     ]
 
     lang = [
@@ -100,6 +101,7 @@ ext {
     room = [
             core      : "androidx.room:room-runtime:${versions.roomVersion}",
             kapt      : "androidx.room:room-compiler:${versions.roomVersion}",
+            ktx       : "androidx.room:room-ktx:${versions.roomVersion}",
             coroutines: "androidx.room:room-ktx:${versions.roomVersion}",
             paging    : "androidx.room:room-paging:${versions.roomVersion}"
     ]
@@ -119,6 +121,10 @@ ext {
     easyAdapter = [
             core      : "ru.surfstudio.android:easyadapter:${versions.easyAdapterVersion}",
             pagination: "ru.surfstudio.android:easyadapter-pagination:${versions.easyAdapterVersion}"
+    ]
+
+    coil = [
+            core: "io.coil-kt:coil:${versions.coilVersion}"
     ]
 
     serialization = [
