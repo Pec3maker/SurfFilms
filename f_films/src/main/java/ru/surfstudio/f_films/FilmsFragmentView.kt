@@ -27,9 +27,7 @@ import ru.surfstudio.base_feature.state.UiState
 @AndroidEntryPoint
 class FilmsFragmentView : Fragment() {
 
-    private var _binding: FragmentFilmsBinding? = null
-    private val binding get() = _binding!!
-
+    private var binding: FragmentFilmsBinding? = null
     private val viewModel: FilmsViewModel by viewModels()
     private val easyAdapter = EasyPaginationAdapter(PaginationFooterItemController()) {
         viewModel.loadNextPage()
@@ -57,15 +55,20 @@ class FilmsFragmentView : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentFilmsBinding.inflate(inflater, container, false)
-        return binding.root
+    ): View? {
+        binding = FragmentFilmsBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
         observeFilms()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
     private fun observeFilms() {
@@ -104,9 +107,11 @@ class FilmsFragmentView : Fragment() {
     }
 
     private fun init() {
-        with(binding.filmsRv) {
-            adapter = easyAdapter
-            layoutManager = LinearLayoutManager(requireContext())
+        binding?.run {
+            with(filmsRv) {
+                adapter = easyAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+            }
         }
     }
 
