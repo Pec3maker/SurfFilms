@@ -17,7 +17,7 @@ sealed class UiError(
     )
 
     companion object {
-        fun common(exception: Throwable): UiError =
+        fun getUiError(exception: Throwable): UiError =
             when (exception) {
                 is java.net.UnknownHostException -> UnknownHostException
                 else -> Common(exception.message)

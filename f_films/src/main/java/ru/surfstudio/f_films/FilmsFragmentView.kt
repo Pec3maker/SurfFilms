@@ -99,7 +99,6 @@ class FilmsFragmentView : Fragment() {
                                 PaginationState.ERROR
                             )
                         }
-                        UiState.Empty -> Unit
                     }
                 }
             }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="60dp">
 
@@ -7,7 +7,7 @@
         android:id="@+id/pagination_footer_btn"
         android:layout_width="38dp"
         android:layout_height="38dp"
-        android:layout_centerInParent="true"
+        android:layout_gravity="center"
         android:background="@drawable/ic_refresh"
         android:gravity="center" />
 
@@ -15,6 +15,6 @@
         android:id="@+id/pagination_footer_progress_bar"
         android:layout_width="38dp"
         android:layout_height="38dp"
-        android:layout_centerInParent="true"
+        android:layout_gravity="center"
         android:indeterminate="true" />
-</RelativeLayout>
+</FrameLayout>

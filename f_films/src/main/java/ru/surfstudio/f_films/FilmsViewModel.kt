@@ -19,34 +19,13 @@ class FilmsViewModel @Inject constructor(
     private val filmsRepository: FilmsRepository
 ) : ViewModel() {
 
-    init {
-        loadFilms(STARTING_PAGE)
-        observeFavouritesFilms()
-    }
-
-    private fun observeFavouritesFilms() {
-        viewModelScope.launch {
-            filmsRepository.favouritesFilmListFlow.collectLatest { films ->
-                _screenState.emit(
-                    _screenState.value.copy(
-                        films = matchFavourites(
-                            _screenState.value.films.map {
-                                it.film
-                            }
-                        )
-                    )
-                )
-            }
-        }
-    }
-
-    private var curPage = STARTING_PAGE
-
-    private val _screenState: MutableStateFlow<ScreenState> =
-        MutableStateFlow(ScreenState())
+    private val _screenState: MutableStateFlow<ScreenState> = MutableStateFlow(ScreenState())
     val screenState: StateFlow<ScreenState> = _screenState
 
-    val favouritesFilms = filmsRepository.favouritesFilmListFlow
+    init {
+        loadFilms()
+        observeFavouritesFilms()
+    }
 
     fun addToFavorite(film: Film) {
         viewModelScope.launch {
@@ -55,24 +34,25 @@ class FilmsViewModel @Inject constructor(
     }
 
     fun loadNextPage() {
-        curPage++
-        loadFilms(curPage)
+        loadFilms()
     }
 
-    private fun loadFilms(page: Int) {
+    private fun loadFilms() {
         viewModelScope.launch {
             try {
                 _screenState.emit(
                     ScreenState(
                         UiState.Success,
-                        matchFavourites(filmsRepository.getFilms(page))
+                        matchFavourites(filmsRepository.getFilms(_screenState.value.page)),
+                        _screenState.value.page + 1
                     )
                 )
             } catch (err: Exception) {
                 _screenState.emit(
                     ScreenState(
-                        UiState.Error(UiError.common(err)),
-                        _screenState.value.films
+                        UiState.Error(UiError.getUiError(err)),
+                        _screenState.value.films,
+                        _screenState.value.page
                     )
                 )
             }
@@ -85,7 +65,19 @@ class FilmsViewModel @Inject constructor(
         }
     }
 
-    companion object {
-        const val STARTING_PAGE = 1
+    private fun observeFavouritesFilms() {
+        viewModelScope.launch {
+            filmsRepository.favouritesFilmListFlow.collectLatest {
+                _screenState.emit(
+                    _screenState.value.copy(
+                        films = _screenState.value.films.map { filmUi ->
+                            filmUi.copy(
+                                isFavourite = filmsRepository.favouritesFilmListFlow.value.any { it.id == filmUi.film.id }
+                            )
+                        }
+                    )
+                )
+            }
+        }
     }
 }

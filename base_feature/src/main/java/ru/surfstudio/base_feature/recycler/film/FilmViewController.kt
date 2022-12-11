@@ -29,28 +29,26 @@ class FilmViewController(
         BindableViewHolder<FilmUi>(parent, R.layout.film_item) {
 
         private val binding = FilmItemBinding.bind(itemView)
-        private val photoIv = binding.posterIv
-        private val addToFavoriteIv = binding.cbFavorites
-        private val titleTv = binding.titleTv
-        private val overviewTv = binding.overviewTv
-        private val dateTv = binding.date
 
         override fun bind(data: FilmUi) {
             val film = data.film
-            addToFavoriteIv.isChecked = data.isFavourite
-            titleTv.text = film.title
-            overviewTv.text = film.overview
-            dateTv.text = film.releaseDate ?: ""
-            film.posterPath?.let {
-                photoIv.load(it)
-            }
 
             itemView.setOnClickListener {
                 onFilmClick(film, it)
             }
 
-            addToFavoriteIv.setOnClickListener {
-                onFavoriteClick(film)
+            with(binding) {
+                cbFavorites.isChecked = data.isFavourite
+                cbFavorites.setOnClickListener {
+                    onFavoriteClick(film)
+                }
+
+                titleTv.text = film.title
+                overviewTv.text = film.overview
+                date.text = film.releaseDate ?: ""
+                film.posterPath?.let {
+                    posterIv.load(it)
+                }
             }
         }
     }

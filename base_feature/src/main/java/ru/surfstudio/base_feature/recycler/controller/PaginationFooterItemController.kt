@@ -1,12 +1,12 @@
 package ru.surfstudio.base_feature.recycler.controller
 
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
-import android.widget.ProgressBar
-import android.widget.TextView
 import ru.surfstudio.android.easyadapter.pagination.EasyPaginationAdapter
 import ru.surfstudio.android.easyadapter.pagination.PaginationState
 import ru.surfstudio.android.filmssurf.base_feature.R
+import ru.surfstudio.android.filmssurf.base_feature.databinding.LayoutPaginationFooterBinding
 
 class PaginationFooterItemController :
     EasyPaginationAdapter.BasePaginationFooterController<PaginationFooterItemController.Holder>() {
@@ -26,32 +26,34 @@ class PaginationFooterItemController :
         R.layout.layout_pagination_footer
     ) {
 
-        private val loadingIndicator: ProgressBar =
-            itemView.findViewById(R.id.pagination_footer_progress_bar)
-        private val showMoreBtn: TextView = itemView.findViewById(R.id.pagination_footer_btn)
+        private val binding = LayoutPaginationFooterBinding.bind(itemView)
 
         init {
-            showMoreBtn.setOnClickListener { listener.onShowMore() }
-            loadingIndicator.visibility = View.GONE
-            showMoreBtn.visibility = View.GONE
+            with(binding) {
+                paginationFooterBtn.setOnClickListener { listener.onShowMore() }
+                paginationFooterBtn.visibility = GONE
+                paginationFooterProgressBar.visibility = GONE
+            }
         }
 
         override fun bind(state: PaginationState) {
 
-            when (state) {
-                PaginationState.READY -> {
-                    loadingIndicator.visibility = View.VISIBLE
-                    showMoreBtn.visibility = View.GONE
+            with(binding) {
+                when (state) {
+                    PaginationState.READY -> {
+                        paginationFooterProgressBar.visibility = View.VISIBLE
+                        paginationFooterBtn.visibility = View.GONE
+                    }
+                    PaginationState.COMPLETE -> {
+                        paginationFooterProgressBar.visibility = View.GONE
+                        paginationFooterBtn.visibility = View.GONE
+                    }
+                    PaginationState.ERROR -> {
+                        paginationFooterProgressBar.visibility = View.GONE
+                        paginationFooterBtn.visibility = View.VISIBLE
+                    }
+                    else -> throw IllegalArgumentException("unsupported state: $state")
                 }
-                PaginationState.COMPLETE -> {
-                    loadingIndicator.visibility = View.GONE
-                    showMoreBtn.visibility = View.GONE
-                }
-                PaginationState.ERROR -> {
-                    loadingIndicator.visibility = View.GONE
-                    showMoreBtn.visibility = View.VISIBLE
-                }
-                else -> throw IllegalArgumentException("unsupported state: $state")
             }
         }
     }
