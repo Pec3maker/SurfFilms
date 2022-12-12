@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/film_item_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/poster_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="170dp"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="170dp"
+        tools:layout_width="150dp" />
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:maxLines="2"
+        android:textAppearance="@style/Text.Bold_Montserrat"
+        app:layout_constraintBottom_toTopOf="@+id/overview_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/poster_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Бегущий по лезвию 2049" />
+
+    <TextView
+        android:id="@+id/overview_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textAppearance="@style/Text.Regular_Montserrat"
+        android:textColor="@color/light_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/poster_iv"
+        app:layout_constraintTop_toBottomOf="@id/title_tv"
+        tools:text="Бегущий по лезвию Бегущий по лезвию Бегущий по лезвию Бегущий по лезвию Бегущий по лезвию Бегущий по лезвию Бегущий по лезвию Бегущий по лезвию Бегущий по лезвию Бегущий по лезвию " />
+
+    <ImageView
+        android:id="@+id/calendar_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_calendar"
+        app:layout_constraintStart_toEndOf="@id/poster_iv"
+        app:layout_constraintTop_toBottomOf="@id/overview_tv" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textAppearance="@style/Text.Regular_Montserrat"
+        android:textColor="@color/light_gray"
+        app:layout_constraintEnd_toStartOf="@id/cb_favorites"
+        app:layout_constraintStart_toEndOf="@id/calendar_iv"
+        app:layout_constraintTop_toBottomOf="@id/overview_tv"
+        tools:text="1 января 2017" />
+
+    <CheckBox
+        android:id="@+id/cb_favorites"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="11dp"
+        android:button="@drawable/favourite_icon_selector"
+        android:buttonTint="@color/light_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/date"
+        app:layout_constraintTop_toBottomOf="@id/overview_tv" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

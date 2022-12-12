@@ -16,7 +16,7 @@ interface FilmDao {
     suspend fun deleteFilms(films: List<FilmEntity>)
 
     @Query(
-        "SELECT * FROM FilmEntity " +
+        "SELECT FilmEntity.* FROM FilmEntity " +
                 "JOIN FavoritesFilmsEntity ON FilmEntity.id = FavoritesFilmsEntity.film_id"
     )
     fun getFavouriteFilms(): Flow<List<FilmEntity>>

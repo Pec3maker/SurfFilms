@@ -53,7 +53,7 @@ object CommonModule {
     @Provides
     @Singleton
     internal fun provideGson(): Gson {
-        return GsonBuilder().create()
+        return GsonBuilder().setLenient().create()
     }
 
     @Provides
@@ -70,11 +70,9 @@ object CommonModule {
             .build()
     }
 
-
     @Provides
     @Singleton
     fun provideFilmDao(db: FilmDatabase): FilmDao {
         return db.filmDao
     }
-
 }

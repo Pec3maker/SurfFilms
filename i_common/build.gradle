@@ -1,5 +1,6 @@
 apply from: '../commonInteractorModule.gradle'
 apply from: '../daggerKaptModule.gradle'
+apply from: '../roomKaptModule.gradle'
 
 android {
     namespace 'ru.surfstudio.android.filmssurf.i_common'
@@ -11,8 +12,4 @@ dependencies {
     implementation okHttp.loggingInterceptor
     implementation serialization.gson
     implementation retrofit.gsonConverter
-    kapt room.core
-    implementation room.core
-    implementation room.coroutines
-    implementation room.paging
 }

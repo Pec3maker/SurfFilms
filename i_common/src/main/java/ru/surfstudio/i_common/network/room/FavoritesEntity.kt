@@ -1,7 +1,7 @@
 package ru.surfstudio.i_common.network.room
 
 import androidx.room.*
-import androidx.room.ForeignKey.CASCADE
+import androidx.room.ForeignKey.NO_ACTION
 
 @Entity(
     foreignKeys = [
@@ -9,11 +9,11 @@ import androidx.room.ForeignKey.CASCADE
             entity = FilmEntity::class,
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("film_id"),
-            onDelete = CASCADE
+            onDelete = NO_ACTION
         )
     ]
 )
 data class FavoritesFilmsEntity(
-    @ColumnInfo(name = "id") @PrimaryKey(autoGenerate = true) val id: Int,
+    @ColumnInfo(name = "id") @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = "film_id") val filmId: Int
 )
