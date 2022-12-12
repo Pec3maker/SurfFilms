@@ -13,8 +13,6 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import ru.surfstudio.android.easyadapter.ItemList
-import ru.surfstudio.android.easyadapter.item.BindableItem
 import ru.surfstudio.android.easyadapter.pagination.EasyPaginationAdapter
 import ru.surfstudio.android.easyadapter.pagination.PaginationState
 import ru.surfstudio.android.filmssurf.f_films.databinding.FragmentFilmsBinding
@@ -75,31 +73,11 @@ class FilmsFragmentView : Fragment() {
         lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.screenState.collect {
-                    val itemList = ItemList.create().apply {
-                        addAll(
-                            it.films.map { film ->
-                                BindableItem(
-                                    film,
-                                    filmViewController
-                                )
-                            }
-                        )
-                    }
-
-                    when (it.state) {
-                        UiState.Success -> {
-                            easyAdapter.setItems(
-                                itemList,
-                                PaginationState.READY
-                            )
-                        }
-                        is UiState.Error -> {
-                            easyAdapter.setItems(
-                                itemList,
-                                PaginationState.ERROR
-                            )
-                        }
-                    }
+                    easyAdapter.setData(
+                        it.films,
+                        filmViewController,
+                        if (it.state is UiState.Success) PaginationState.READY else PaginationState.ERROR
+                    )
                 }
             }
         }
